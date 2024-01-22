@@ -5,24 +5,42 @@
 
 using namespace std;
 
-void insertAfter(struct Node *prev_node, int node_data)
+// void insertAfter(struct Node *prev_node, int node_data)
+void insertAfter(struct Node **head, int insert_node, int node_data)
 {
-    /*1. check if the given prev_node is NULL */
-    if (prev_node == NULL)
+    /* 1. create and allocate node */
+    struct Node *newNode = new Node;
+
+    struct Node *last = *head; /* used in step 5*/
+
+    /* 2. assign data to the node */
+    newNode->data = node_data;
+
+    /* 3. set next pointer of new node to null as its the last node*/
+    newNode->next = NULL;
+
+    /* 4. if list is empty, new node becomes first node */
+    if (*head == NULL)
     {
-        cout << "the given previous node is required,cannot be NULL";
+        *head = newNode;
         return;
     }
 
-    /* 2. create and allocate new node */
-    struct Node *newNode = new Node;
+    /* 5. Else traverse till the matching node */
+    while (last->next != NULL)
+    {
+        if (last->data == insert_node)
+        {
+            cout << "Match found, inserting new node\n";
+            newNode->next = last->next;
+            last->next = newNode;
+            return;
+        }
 
-    /* 3. assign data to the node */
-    newNode->data = node_data;
-
-    /* 4. Make next of new node as next of prev_node */
-    newNode->next = prev_node->next;
-
-    /* 5. move the next of prev_node as new_node */
-    prev_node->next = newNode;
+        last = last->next;
+    }
+    cout << "Node not found, no data inserted";
+    /* 6. Change the next of last node */
+    last->next = newNode;
+    return;
 }
