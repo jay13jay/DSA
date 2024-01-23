@@ -5,8 +5,8 @@ OBS = ../build
 # ****************************************************
 # Targets needed to bring the executable up to date
  
-main: $(OBS)/main.o $(OBS)/display.o $(OBS)/push.o $(OBS)/insertAfter.o
-	$(CC) $(CFLAGS) -o ../bin/main ../build/main.o ../build/display.o ../build/push.o ../build/insertAfter.o
+main: $(OBS)/main.o $(OBS)/display.o $(OBS)/push.o $(OBS)/insertAfter.o $(OBS)/insertAfterNode.o $(OBS)/append.o
+	$(CC) $(CFLAGS) -o ../bin/main ../build/main.o ../build/display.o ../build/push.o ../build/insertAfter.o ../build/append.o
  
 # The main.o target can be written more simply
  
@@ -21,3 +21,9 @@ $(OBS)/push.o: ../include/push.h
 
 $(OBS)/insertAfter.o: ../include/insertAfter.h
 	$(CC) $(CFLAGS) -c insertAfter.cpp -o $(OBS)/insertAfter.o
+
+$(OBS)/insertAfterNode.o: ../include/insertAfterNode.h
+	$(CC) $(CFLAGS) -c insertAfterNode.cpp -o $(OBS)/insertAfterNode.o
+
+$(OBS)/append.o: ../include/append.h
+	$(CC) $(CFLAGS) -c append.cpp -o $(OBS)/append.o

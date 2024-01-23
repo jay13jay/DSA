@@ -1,6 +1,8 @@
 #include "../include/append.h"
 #include "../include/nodeStruct.h"
 
+#include <iostream>
+
 void append(struct Node **head, int node_data)
 {
     /* 1. create and allocate node */

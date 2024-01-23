@@ -1,6 +1,7 @@
 #include "../include/push.h"
 #include "../include/display.h"
 #include "../include/insertAfter.h"
+#include "../include/append.h"
 #include "../include/nodeStruct.h"
 
 #include <iostream>
@@ -17,6 +18,9 @@ int main()
 
     insertAfter(&head, 30, 50);
     insertAfter(&head, 40, 100);
+
+    append(&head, 150);
+    push(&head, 1);
 
     displayList(head);
 

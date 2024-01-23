@@ -6,7 +6,7 @@
 using namespace std;
 
 // void insertAfter(struct Node *prev_node, int node_data)
-void insertAfter(struct Node **head, int insert_node, int node_data)
+void insertAfter(struct Node **head, int insert_int, int node_data)
 {
     /* 1. create and allocate node */
     struct Node *newNode = new Node;
@@ -29,7 +29,7 @@ void insertAfter(struct Node **head, int insert_node, int node_data)
     /* 5. Else traverse till the matching node */
     while (last->next != NULL)
     {
-        if (last->data == insert_node)
+        if (last->data == insert_int)
         {
             cout << "Match found, inserting new node\n";
             newNode->next = last->next;
