@@ -18,6 +18,8 @@ int main()
     insertAfter(&head, 30, 50);
     insertAfter(&head, 40, 100);
 
+    insertAfter(&head, 100, 500);
+
     displayList(head);
 
     return 0;
