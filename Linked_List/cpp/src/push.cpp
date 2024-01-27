@@ -11,8 +11,8 @@ void push(struct Node **head, int node_data)
     newNode->data = node_data;
 
     /* 3. set next of new node as head */
-    newNode->next = (*head);
+    newNode->next = *head;
 
     /* 4. move the head to point to the new node */
-    (*head) = newNode;
+    *head = newNode;
 }

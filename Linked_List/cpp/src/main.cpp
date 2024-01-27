@@ -2,6 +2,7 @@
 #include "../include/display.h"
 #include "../include/insertAfter.h"
 #include "../include/nodeStruct.h"
+#include "../include/deleteN.h"
 
 #include <iostream>
 
@@ -14,13 +15,15 @@ int main()
     push(&head, 20);
     push(&head, 30);
     push(&head, 40);
+    push(&head, 100);
 
-    insertAfter(&head, 30, 50);
-    insertAfter(&head, 40, 100);
+    insertAfter(head, 30, 50);
 
-    insertAfter(&head, 100, 500);
+    deleteN(head, 2);
 
     displayList(head);
+
+    cout << "Head: " << head->data << endl;
 
     return 0;
 }
