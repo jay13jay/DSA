@@ -1,7 +1,6 @@
 #include "../include/push.h"
 #include "../include/nodeStruct.h"
 
-// void push(struct Node **head, int node_data)
 void push(struct Node **head, int node_data)
 {
     /* 1. create and allocate node */
