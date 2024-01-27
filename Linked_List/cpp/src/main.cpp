@@ -12,6 +12,7 @@ int main()
 {
     cout << "Starting Program\n";
     struct Node *head = NULL;
+
     push(&head, 20);
     push(&head, 30);
     push(&head, 40);
