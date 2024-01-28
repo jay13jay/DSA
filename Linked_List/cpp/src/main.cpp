@@ -3,6 +3,7 @@
 #include "../include/insertAfter.h"
 #include "../include/append.h"
 #include "../include/nodeStruct.h"
+#include "../include/deleteN.h"
 
 #include <iostream>
 
@@ -12,17 +13,22 @@ int main()
 {
     cout << "Starting Program\n";
     struct Node *head = NULL;
+
     push(&head, 20);
     push(&head, 30);
     push(&head, 40);
+    push(&head, 100);
 
-    insertAfter(&head, 30, 50);
-    insertAfter(&head, 40, 100);
+    insertAfter(head, 30, 50);
+
+    deleteN(head, 2);
 
     append(&head, 150);
     push(&head, 1);
 
     displayList(head);
+
+    cout << "Head: " << head->data << endl;
 
     return 0;
 }

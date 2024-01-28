@@ -6,12 +6,13 @@
 using namespace std;
 
 // void insertAfter(struct Node *prev_node, int node_data)
-void insertAfter(struct Node **head, int insert_int, int node_data)
+
+void insertAfter(struct Node *head, int insert_node, int node_data)
 {
     /* 1. create and allocate node */
     struct Node *newNode = new Node;
 
-    struct Node *last = *head; /* used in step 5*/
+    struct Node *last = head; /* used in step 5*/
 
     /* 2. assign data to the node */
     newNode->data = node_data;
@@ -20,18 +21,18 @@ void insertAfter(struct Node **head, int insert_int, int node_data)
     newNode->next = NULL;
 
     /* 4. if list is empty, new node becomes first node */
-    if (*head == NULL)
+    if (head == NULL)
     {
-        *head = newNode;
+        head = newNode;
         return;
     }
 
     /* 5. Else traverse till the matching node */
     while (last->next != NULL)
     {
-        if (last->data == insert_int)
+        if (last->data == insert_node)
         {
-            cout << "Match found, inserting new node\n";
+            // cout << "Match found, inserting new node\n";
             newNode->next = last->next;
             last->next = newNode;
             return;
