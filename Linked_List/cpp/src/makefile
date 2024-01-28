@@ -5,12 +5,12 @@ OBS = ../build
 # ****************************************************
 # Targets needed to bring the executable up to date
  
-main: $(OBS)/main.o $(OBS)/display.o $(OBS)/push.o $(OBS)/insertAfter.o $(OBS)/deleteN.o
-	$(CC) $(CFLAGS) -o ../bin/main ../build/main.o ../build/display.o ../build/push.o ../build/insertAfter.o $(OBS)/deleteN.o
+main: $(OBS)/main.o $(OBS)/display.o $(OBS)/push.o $(OBS)/insertAfter.o $(OBS)/deleteN.o $(OBS)/reverse.o
+	$(CC) $(CFLAGS) -o ../bin/main ../build/main.o ../build/display.o ../build/push.o ../build/insertAfter.o $(OBS)/deleteN.o $(OBS)/reverse.o
  
 # The main.o target can be written more simply
  
-$(OBS)/main.o: main.cpp ../include/display.h ../include/push.h ../include/insertAfter.h ../include/deleteN.h
+$(OBS)/main.o: main.cpp ../include/display.h ../include/push.h ../include/insertAfter.h ../include/deleteN.h ../include/reverse.h
 	$(CC) $(CFLAGS) -c main.cpp -o $(OBS)/main.o
  
 $(OBS)/display.o: ../include/display.h
@@ -21,3 +21,10 @@ $(OBS)/push.o: ../include/push.h
 
 $(OBS)/insertAfter.o: ../include/insertAfter.h
 	$(CC) $(CFLAGS) -c insertAfter.cpp -o $(OBS)/insertAfter.o
+
+$(OBS)/deleteN.o: ../include/deleteN.h
+	$(CC) $(CFLAGS) -c deleteN.cpp -o $(OBS)/deleteN.o
+
+$(OBS)/reverse.o: ../include/reverse.h
+	$(CC) $(CFLAGS) -c reverse.cpp -o $(OBS)/reverse.o
+
