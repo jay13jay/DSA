@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../include/append.h"
 #include "../include/nodeStruct.h"
 
