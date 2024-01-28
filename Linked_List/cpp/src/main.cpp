@@ -19,16 +19,13 @@ int main()
     push(&head, 30);
     push(&head, 40);
     push(&head, 100);
-
     insertAfter(head, 30, 50);
 
-    deleteN(head, 2);
+    // deleteN(head, 2);
 
     displayList(head);
 
-    cout << "Head: " << head->data << endl;
-
-    reverseI(head);
+    reverseI(&head);
 
     displayList(head);
 
