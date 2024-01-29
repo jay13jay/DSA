@@ -2,7 +2,8 @@
 
 ## Description
 
-Holds all of the source code files
+Legacy files - will be removed from the repo
+only keeping for reference at the moment
 
 ## Functions
 

@@ -1,37 +1,40 @@
-#include "../include/push.h"
-#include "../include/display.h"
-#include "../include/insertAfter.h"
-#include "../include/append.h"
-#include "../include/nodeStruct.h"
-#include "../include/deleteN.h"
-#include "../include/reverse.h"
-
 #include <iostream>
-
-using namespace std;
+#include "../include/linkedlist.h"
 
 int main()
 {
-    cout << "Starting Program\n";
-    struct Node *head = NULL;
+    std::cout << "Starting..." << std::endl;
+    LinkedList myLL;
+    myLL.display();
 
-    push(&head, 80);
-    push(&head, 20);
-    push(&head, 30);
-    push(&head, 40);
-    push(&head, 100);
-    insertAfter(head, 30, 50);
+    std::cout << "pushing:\t{5, 100, 300, 10, 76}" << std::endl;
+    myLL.push(5);
+    myLL.push(100);
+    myLL.push(300);
+    myLL.push(10);
+    myLL.push(76);
+    myLL.display();
+    std::cout << "List Len:\t" << myLL.mlist_len << std::endl;
 
-    // deleteN(head, 2);
+    std::cout << "\nappending:\t{150, 155}" << std::endl;
+    myLL.append(150);
+    myLL.append(155);
+    myLL.display();
+    std::cout << "List Len:\t" << myLL.mlist_len << std::endl;
 
-    append(&head, 150);
-    push(&head, 1);
+    std::cout << "\nRemoving 6th node" << std::endl;
+    myLL.deleteN(6);
+    myLL.display();
+    std::cout << "List Len:\t" << myLL.mlist_len << std::endl;
 
-    displayList(head);
+    std::cout << "\nReversing List" << std::endl;
+    myLL.reverse();
+    myLL.display();
 
-    reverseI(&head);
+    std::cout << "\nInsert\t{556} after 4th node" << std::endl;
+    myLL.insertAfter(4, 556);
+    myLL.display();
+    std::cout << "List Len:\t" << myLL.mlist_len << std::endl;
 
-    displayList(head);
-
-    return 0;
+    std::cout << "\nEnd of program" << std::endl;
 }
