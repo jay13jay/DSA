@@ -4,6 +4,12 @@
 
 Class to implement a linked list
 
+### Vars
+
+## Vars
+
+- mlist_len: holds the length of the list for quick reference
+
 ### Functions
 
 #### push
