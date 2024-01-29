@@ -14,9 +14,9 @@ int main()
     myLL.append(150);
     myLL.append(155);
 
-    std::cout << "Current List Len:\t" << myLL.mlist_len << std::endl;
-    myLL.deleteN(8);
-    std::cout << "Current List Len:\t" << myLL.mlist_len << std::endl;
+    myLL.deleteN(6);
 
+    myLL.display();
+    myLL.reverse();
     myLL.display();
 }

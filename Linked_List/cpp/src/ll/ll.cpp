@@ -75,17 +75,51 @@ void LinkedList::insertAfter(int insert_node, int data)
 }
 
 void LinkedList::reverse()
+/*
+reverse linked list values using iterative approach
+see readme for description of the steps
+*/
 {
+    // STEP 1
+    // define nodes for current, previous, and next
+    struct Node *cur, *prev, *next;
+    // STEP 2
+    // go to first node in the list, pointed to by head
+    cur = head;
+    // STEP 3
+    prev = NULL;
+    // STEP 4
+    while (cur != NULL)
+    {
+        // STEP 4a
+        // store the next node before we break the link to it
+        next = cur->next;
+        // STEP 4b
+        // reverse the pointer of the current node
+        cur->next = prev;
+        // STEP 4c
+        //  move previous node up 1 node
+        prev = cur;
+        // STEP 4d
+        // move current node up 1 node
+        cur = next;
+    }
+    // STEP 5
+    /*
+    list is now reversed, and prev is the last node
+    so we point head to prev
+    */
+    head = prev;
 }
 
-bool LinkedList::deleteN(int node)
+bool LinkedList::deleteN(int n)
 /*
 delete nth node from list
 returns true if removal succeeds
 returns false if unable to remove node
 */
 {
-    if (node > mlist_len)
+    if (n > mlist_len)
     {
         std::cout << "Index out of range, unable to remove node" << std::endl;
         return false;
@@ -94,7 +128,7 @@ returns false if unable to remove node
     struct Node *temp1 = head;
 
     // check if we're removing the first node
-    if (node == 1)
+    if (n == 1)
     {
         head = temp1->next;
         free(temp1);
@@ -104,7 +138,7 @@ returns false if unable to remove node
 
     // iterate thru list until n-1
     int i{};
-    for (i = 0; i < node - 2; i++)
+    for (i = 0; i < n - 2; i++)
     {
         temp1 = temp1->next;
     }
