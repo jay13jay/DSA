@@ -19,4 +19,7 @@ int main()
     myLL.display();
     myLL.reverse();
     myLL.display();
+    std::cout << "List Len:\t" << myLL.mlist_len << std::endl;
+    myLL.insertAfter(100, 556);
+    myLL.display();
 }

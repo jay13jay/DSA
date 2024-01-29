@@ -70,8 +70,37 @@ void LinkedList::append(int data)
     mlist_len++;
 }
 
-void LinkedList::insertAfter(int insert_node, int data)
+void LinkedList::insertAfter(int n, int data)
+/*
+insert node after nth node
+*/
 {
+    // check if n is larger than list len
+    // if it is, append data to end of list
+    if (n > mlist_len)
+    {
+        std::cout << "Index out of range, appending to end of list" << std::endl;
+        this->append(data);
+        return;
+    }
+    struct Node *newNode = new Node; // node to insert
+    struct Node *last = head;        // used to iterate over list
+    newNode->data = data;
+
+    // if list is empty, new node becomes first node
+    if (head == NULL)
+    {
+        head = newNode;
+        return;
+    }
+    // if list is not empty, traverse until n-1
+    int i{};
+    for (i = 0; i < n - 1; i++)
+    {
+        last = last->next;
+    }
+    newNode->next = last->next; // set inserted nodes next to point to n+1 node
+    last->next = newNode;       // set n-1 node to point to new node
 }
 
 void LinkedList::reverse()
