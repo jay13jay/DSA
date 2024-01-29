@@ -4,9 +4,20 @@
 
 Class to implement a linked list
 
-### Vars
+## Compile
 
-## Vars
+run make:
+
+```bash
+cd src
+make
+cd ../bin/
+./linkedlist
+```
+
+binary will be output to: DSA/Linked_List/cpp/bin/linkedlist
+
+### Vars
 
 - mlist_len: holds the length of the list for quick reference
 

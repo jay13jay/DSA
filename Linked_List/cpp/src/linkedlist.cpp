@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "ll.h"
+#include "../include/linkedlist.h"
 
 struct LinkedList::Node
 {
@@ -27,11 +27,12 @@ void LinkedList::push(int node_data)
     /* 4. move the head to point to the new node */
     head = newNode;
 
-    mlist_len++;
+    this->mlist_len++;
 }
 
 void LinkedList::display()
 {
+    std::cout << "Current List:\t|| ";
     struct Node *node;
     node = head;
     // traverse the list to display each node
@@ -41,8 +42,14 @@ void LinkedList::display()
         node = node->next;
     }
 
-    if (node == NULL)
-        std::cout << "null\n";
+    if (node == NULL && this->mlist_len == 0)
+    {
+        std::cout << "null ||\n";
+    }
+    else if (node == NULL)
+    {
+        std::cout << "null ||\n";
+    }
 }
 
 void LinkedList::append(int data)
@@ -67,7 +74,7 @@ void LinkedList::append(int data)
     }
     last->next = newNode;
 
-    mlist_len++;
+    this->mlist_len++;
 }
 
 void LinkedList::insertAfter(int n, int data)
@@ -77,10 +84,11 @@ insert node after nth node
 {
     // check if n is larger than list len
     // if it is, append data to end of list
-    if (n > mlist_len)
+    if (n > this->mlist_len)
     {
         std::cout << "Index out of range, appending to end of list" << std::endl;
         this->append(data);
+        this->mlist_len++;
         return;
     }
     struct Node *newNode = new Node; // node to insert
@@ -101,6 +109,8 @@ insert node after nth node
     }
     newNode->next = last->next; // set inserted nodes next to point to n+1 node
     last->next = newNode;       // set n-1 node to point to new node
+    this->mlist_len++;
+    return;
 }
 
 void LinkedList::reverse()
@@ -148,7 +158,7 @@ returns true if removal succeeds
 returns false if unable to remove node
 */
 {
-    if (n > mlist_len)
+    if (n > this->mlist_len)
     {
         std::cout << "Index out of range, unable to remove node" << std::endl;
         return false;
@@ -161,7 +171,7 @@ returns false if unable to remove node
     {
         head = temp1->next;
         free(temp1);
-        mlist_len--;
+        this->mlist_len--;
         return true;
     }
 
@@ -181,6 +191,6 @@ returns false if unable to remove node
     */
     temp1->next = temp2->next; // set pointer to n+1
     free(temp2);               // delete node
-    mlist_len--;
+    this->mlist_len--;
     return true;
 }
